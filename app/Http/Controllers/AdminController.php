@@ -33,7 +33,7 @@ class AdminController extends Controller
         ]);
     }
 
-    public function index(OrdersCharts $chart) {
+    public function index() {
         $tahun = date('Y');
         $bulan = date('m');
         for ($i=1; $i <= $bulan ; $i++) { 
