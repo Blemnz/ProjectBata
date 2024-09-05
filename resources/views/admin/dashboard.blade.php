@@ -19,135 +19,97 @@
     </div>
   </div>
 
-  <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4 my-3">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Order Pending Perbulan</h4>
+          </div>
+          <div class="card-body">
+            <h3 class="card-text text-center">{{ $orderPending }}</h3>
+          </div>
+          <div class="card-footer" style="background-color: orange">
 
-  <h2>Section title</h2>
-  <div class="table-responsive small">
-    <table class="table table-striped table-sm">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Header</th>
-          <th scope="col">Header</th>
-          <th scope="col">Header</th>
-          <th scope="col">Header</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1,001</td>
-          <td>random</td>
-          <td>data</td>
-          <td>placeholder</td>
-          <td>text</td>
-        </tr>
-        <tr>
-          <td>1,002</td>
-          <td>placeholder</td>
-          <td>irrelevant</td>
-          <td>visual</td>
-          <td>layout</td>
-        </tr>
-        <tr>
-          <td>1,003</td>
-          <td>data</td>
-          <td>rich</td>
-          <td>dashboard</td>
-          <td>tabular</td>
-        </tr>
-        <tr>
-          <td>1,003</td>
-          <td>information</td>
-          <td>placeholder</td>
-          <td>illustrative</td>
-          <td>data</td>
-        </tr>
-        <tr>
-          <td>1,004</td>
-          <td>text</td>
-          <td>random</td>
-          <td>layout</td>
-          <td>dashboard</td>
-        </tr>
-        <tr>
-          <td>1,005</td>
-          <td>dashboard</td>
-          <td>irrelevant</td>
-          <td>text</td>
-          <td>placeholder</td>
-        </tr>
-        <tr>
-          <td>1,006</td>
-          <td>dashboard</td>
-          <td>illustrative</td>
-          <td>rich</td>
-          <td>data</td>
-        </tr>
-        <tr>
-          <td>1,007</td>
-          <td>placeholder</td>
-          <td>tabular</td>
-          <td>information</td>
-          <td>irrelevant</td>
-        </tr>
-        <tr>
-          <td>1,008</td>
-          <td>random</td>
-          <td>data</td>
-          <td>placeholder</td>
-          <td>text</td>
-        </tr>
-        <tr>
-          <td>1,009</td>
-          <td>placeholder</td>
-          <td>irrelevant</td>
-          <td>visual</td>
-          <td>layout</td>
-        </tr>
-        <tr>
-          <td>1,010</td>
-          <td>data</td>
-          <td>rich</td>
-          <td>dashboard</td>
-          <td>tabular</td>
-        </tr>
-        <tr>
-          <td>1,011</td>
-          <td>information</td>
-          <td>placeholder</td>
-          <td>illustrative</td>
-          <td>data</td>
-        </tr>
-        <tr>
-          <td>1,012</td>
-          <td>text</td>
-          <td>placeholder</td>
-          <td>layout</td>
-          <td>dashboard</td>
-        </tr>
-        <tr>
-          <td>1,013</td>
-          <td>dashboard</td>
-          <td>irrelevant</td>
-          <td>text</td>
-          <td>visual</td>
-        </tr>
-        <tr>
-          <td>1,014</td>
-          <td>dashboard</td>
-          <td>illustrative</td>
-          <td>rich</td>
-          <td>data</td>
-        </tr>
-        <tr>
-          <td>1,015</td>
-          <td>random</td>
-          <td>tabular</td>
-          <td>information</td>
-          <td>text</td>
-        </tr>
-      </tbody>
-    </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 my-3">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Order Selesai Perbulan</h4>
+          </div>
+          <div class="card-body">
+            <h3 class="card-text text-center">{{ $orderSelesai }}</h3>
+          </div>
+          <div class="card-footer" style="background-color: green">
+
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 my-3">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Order Cancel Perbulan</h4>
+          </div>
+          <div class="card-body">
+            <h3 class="card-text text-center">{{ $orderCancel }}</h3>
+          </div>
+          <div class="card-footer" style="background-color: red">
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="my-5" id="chart"></div>
   </div>
 </main>
+<script>
+  var options = {
+          series: [{
+            name: "Total :",
+            data: @json($dataTotalOrders)
+        }],
+          chart: {
+          height: 350,
+          type: 'line',
+          zoom: {
+            enabled: false
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'straight'
+        },
+        title: {
+          text: 'Data Penjualan Setiap Bulan',
+          align: 'left'
+        },
+        grid: {
+          row: {
+            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+            opacity: 0.5
+          },
+        },
+        xaxis: {
+          categories: @json($dataBulan),
+        },
+        yaxis: {
+          labels: {
+            formatter: function(value) {
+              return value.toLocaleString('id-ID', {
+                style : 'currency',
+                currency : "IDR",
+                minimumFractionDigits: 0
+              }) 
+            }
+          }
+        }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+</script>
 @endsection

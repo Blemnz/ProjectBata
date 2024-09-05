@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\OrdersCharts;
 use App\Models\ItemOrder;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\SetWeb;
 use App\Models\Testimoni;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -31,9 +33,24 @@ class AdminController extends Controller
         ]);
     }
 
-    public function index() {
+    public function index(OrdersCharts $chart) {
+        $tahun = date('Y');
+        $bulan = date('m');
+        for ($i=1; $i <= $bulan ; $i++) { 
+            $Orders = Order::where('status','selesai')->whereYear('created_at', $tahun)->whereMonth('created_at',$i)->sum('total');
+            $dataBulan[] = Carbon::create()->month($i)->format('F');
+            $dataTotalOrders[] = $Orders;
+        }
+        $dataOrderSelesai = Order::where('status', 'selesai')->whereMonth('created_at',$bulan)->count();
+        $dataOrderPending = Order::where('status', 'pending')->whereMonth('created_at',$bulan)->count();
+        $dataOrderCancel = Order::where('status', 'cencel')->whereMonth('created_at',$bulan)->count();
         return view('admin.dashboard', [
             'tittle' => 'Dashboard',
+            'dataTotalOrders' => $dataTotalOrders,
+            'dataBulan' => $dataBulan,
+            'orderPending' => $dataOrderPending,
+            'orderCancel' => $dataOrderCancel,
+            'orderSelesai' => $dataOrderSelesai,
         ]);
     }
 

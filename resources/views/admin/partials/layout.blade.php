@@ -17,6 +17,7 @@
   <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
   <link href="../../../src/css/bootstrap.min.css" rel="stylesheet">
 
@@ -251,10 +252,10 @@
         {{-- sidebar end --}}
         {{-- main --}}
         @yield('container')
-        {{-- main end --}}
-        <script src="../../../src/js/bootstrap.bundle.min.js"></script>      
+        {{-- main end --}}      
     </div>
   </div>
+  <script src="../../../src/js/bootstrap.bundle.min.js"></script>
   <script>
     feather.replace();
   </script>
