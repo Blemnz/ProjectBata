@@ -84,7 +84,7 @@ class OrderController extends Controller
                 'nomor' => $request->nomor,
                 'email' => $request->email,
             ];
-            // SendMail::dispatch(new SendMail($data));
+            SendMail::dispatch(new SendMail($data));
             return redirect()->to('/terkirim');
         }catch(\Exception $e){
             DB::rollBack();

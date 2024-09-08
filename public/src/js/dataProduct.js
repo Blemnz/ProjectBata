@@ -36,6 +36,7 @@ $(document).ready(function () {
             _cartContainer.append(_elCartItem);
         })
         localStorage.removeItem('ordered-product')
+        $('#order').val(JSON.stringify(items));
     }
     $('.add-item').click(function () {
         let cartItem = $(this).data('product');
