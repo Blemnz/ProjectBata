@@ -71,7 +71,7 @@
         </div>
     </section>
     <section class="contact" id="contact">
-        <h1>KONTAK <span>KAMI</span></h1>
+        <h1>KONTAK test <span>KAMI Test</span></h1>
         <div class="grid-container">
             <div class="map" id="map">
                 
