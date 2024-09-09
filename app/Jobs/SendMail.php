@@ -27,6 +27,6 @@ class SendMail
     public function handle(): void
     {
         $data = $this->data;
-        Mail::to('faisal.nizamuddin06@gmail.com')->send(new OrderNotification($data));
+        Mail::to('bandungbata@gmail.com')->send(new OrderNotification($data));
     }
 }

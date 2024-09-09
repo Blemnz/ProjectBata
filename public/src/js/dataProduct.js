@@ -30,7 +30,7 @@ $(document).ready(function () {
             _elCartItem.find('.product-name').text(item.name);
             _elCartItem.find('.item-qty').text(item.qty);
             _elCartItem.find('.total-price').text(rupiah(item.total));
-            _elCartItem.find('.product-img').attr('src', `http://127.0.0.1:8000/storage/`+ item.image +``);
+            _elCartItem.find('.product-img').attr('src', `https://jualhebel/storage/`+ item.image +``);
             _elCartItem.find('.remove').attr('data-product', JSON.stringify(item.id));
             _elCartItem.find('.add').attr('data-product', JSON.stringify(item.id));
             _cartContainer.append(_elCartItem);
@@ -72,7 +72,7 @@ $(document).ready(function () {
             _elCartItem.find('.product-name').text(item.name);
             _elCartItem.find('.item-qty').text(item.qty);
             _elCartItem.find('.total-price').text(rupiah(item.total));
-            _elCartItem.find('.product-img').attr('src', `http://127.0.0.1:8000/storage/`+ item.image +``);
+            _elCartItem.find('.product-img').attr('src', `https://jualhebel/storage/`+ item.image +``);
             _elCartItem.find('.remove').attr('data-product', JSON.stringify(item.id));
             _elCartItem.find('.add').attr('data-product', JSON.stringify(item.id));
             _cartContainer.append(_elCartItem);
@@ -108,7 +108,7 @@ $(document).ready(function () {
             _elCartItem.find('.product-name').text(item.name);
             _elCartItem.find('.item-qty').text(item.qty);
             _elCartItem.find('.total-price').text(rupiah(item.total));
-            _elCartItem.find('.product-img').attr('src', `http://127.0.0.1:8000/storage/`+ item.image +``);
+            _elCartItem.find('.product-img').attr('src', `https://jualhebel/storage/`+ item.image +``);
             _elCartItem.find('.remove').attr('data-product', JSON.stringify(item.id));
             _elCartItem.find('.add').attr('data-product', JSON.stringify(item.id));
             _cartContainer.append(_elCartItem);
@@ -153,7 +153,7 @@ $(document).ready(function () {
             _elCartItem.find('.product-name').text(item.name);
             _elCartItem.find('.item-qty').text(item.qty);
             _elCartItem.find('.total-price').text(rupiah(item.total));
-            _elCartItem.find('.product-img').attr('src', `http://127.0.0.1:8000/storage/`+ item.image +``);
+            _elCartItem.find('.product-img').attr('src', `https://jualhebel/storage/`+ item.image +``);
             _elCartItem.find('.remove').attr('data-product', JSON.stringify(item.id));
             _elCartItem.find('.add').attr('data-product', JSON.stringify(item.id));
             _cartContainer.append(_elCartItem);
