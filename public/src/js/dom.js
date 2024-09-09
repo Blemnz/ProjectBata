@@ -16,7 +16,7 @@ clsbtn.addEventListener('click', () => {
     sidebar.classList.remove('active');
 })
 
-const url = 'http://127.0.0.1:8000/api/map'
+const url = 'https://jualhebel.shop/api/map'
 async function map() {
     try {
         const response = await fetch(url);
