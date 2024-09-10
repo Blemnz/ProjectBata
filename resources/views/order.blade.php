@@ -58,7 +58,7 @@
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ $product->name }}</h5>
                                                 <p class="card-text">{{ $product->description }}</p>
-                                                <p class="card-text" >Rp {{ number_format($product->price,0) }}</p>
+                                                <p class="card-text" >Rp {{ number_format($product->price) }}</p>
                                                 <button type="button" class="btn btn-primary add-item" data-product="{{$product}}">Tambah</button>
                                             </div>
                                         </div>
