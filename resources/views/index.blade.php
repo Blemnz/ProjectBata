@@ -84,7 +84,7 @@
                 <h3>Alamat : {{ $kontak->kontakAlamat ?? ''}}</h3>
                 <div class="whatsapp">
                     <img src="asset/img/wa.png" alt="" width="20">
-                    <a href="">Whatsapp</a>
+                    <a href="https://wa.me/+6285797845026 ">Whatsapp</a>
                 </div>
             </div>
         </div>

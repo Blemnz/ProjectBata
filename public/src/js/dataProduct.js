@@ -36,7 +36,7 @@ $(document).ready(function () {
             _cartContainer.append(_elCartItem);
         })
         localStorage.removeItem('ordered-product')
-        console.log(total);
+        
     }
     $('.add-item').click(function () {
         let cartItem = $(this).data('product');
@@ -58,7 +58,7 @@ $(document).ready(function () {
                 }
             })
         }
-        console.log(total);
+        
         $('#order').val(JSON.stringify(items));
         _cartContainer.empty()
 
@@ -94,7 +94,7 @@ $(document).ready(function () {
                 quantity++;
             }
         })
-        console.log(total);
+        
         $('#order').val(JSON.stringify(items));
         _cartContainer.empty()
 
@@ -139,7 +139,7 @@ $(document).ready(function () {
             quantity--;
             total -= parseInt(newItem.price);
         }
-        console.log(total);
+        
         $('#order').val(JSON.stringify(items));
         _cartContainer.empty()
 
