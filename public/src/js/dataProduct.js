@@ -15,9 +15,9 @@ $(document).ready(function () {
     if(localStorage.getItem('ordered-product')){
         const orderedProd = JSON.parse(localStorage.getItem('ordered-product'));
         quantity++;
-        total = total + orderedProd.price;
+        total += orderedProd.price;
         items.push({...orderedProd, qty:1, total: orderedProd.price});
-        $('#order').val(orderedProd.id);
+        $('#order').val(JSON.stringify(items));
         _cartContainer.empty()
         $('.notif').removeClass('d-none');
         $('.notif').find('.quantity').text(quantity);
@@ -36,7 +36,7 @@ $(document).ready(function () {
             _cartContainer.append(_elCartItem);
         })
         localStorage.removeItem('ordered-product')
-        $('#order').val(JSON.stringify(items));
+        console.log(total);
     }
     $('.add-item').click(function () {
         let cartItem = $(this).data('product');
@@ -44,7 +44,7 @@ $(document).ready(function () {
         if (!items.some(item => item.id === id)) {
             items.push({...cartItem, qty:1, total: cartItem.price});
             quantity++;
-            total = total + cartItem.price; 
+            total += cartItem.price; 
 
         } else {
             items.map((item)=>{
@@ -54,10 +54,11 @@ $(document).ready(function () {
                     item.qty++;
                     item.total = item.qty * item.price;
                     quantity++;
-                    total = total + item.price;
+                    total += item.price;
                 }
             })
         }
+        console.log(total);
         $('#order').val(JSON.stringify(items));
         _cartContainer.empty()
 
@@ -89,11 +90,11 @@ $(document).ready(function () {
             } else {
                 item.qty++;
                 item.total = item.qty * item.price;
-                total = total + item.price;
+                total += item.price;
                 quantity++;
             }
         })
-
+        console.log(total);
         $('#order').val(JSON.stringify(items));
         _cartContainer.empty()
 
@@ -129,16 +130,16 @@ $(document).ready(function () {
                     item.qty--;
                     item.total = item.price * item.qty;
                     quantity--;
-                    total = total - item.price;
+                    total -= item.price;
                     return item;
                 }
             })
         } else if(newItem.qty === 1) {
             items = items.filter((item) => item.id !== id);
             quantity--;
-            total = total - newItem.price;;
+            total -= newItem.price;;
         }
-
+        console.log(total);
         $('#order').val(JSON.stringify(items));
         _cartContainer.empty()
 
