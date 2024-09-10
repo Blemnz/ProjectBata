@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bataringan</title>
+    <link rel="shortcut icon" type="image/x-icon" href="asset/img/logo.png"/>
+    <title>3 Cahaya Utama</title>
     <!-- style -->
     <link rel="stylesheet" href="src/css/main.css">
     <!-- icon -->
@@ -71,7 +72,7 @@
         </div>
     </section>
     <section class="contact" id="contact">
-        <h1>KONTAK<span>KAMI</span></h1>
+        <h1>KONTAK <span>KAMI</span></h1>
         <div class="grid-container">
             <div class="map" id="map">
                 
