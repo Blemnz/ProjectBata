@@ -21,5 +21,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Paginator::useBootstrapFive();
+
+        $schedule = app(\Illuminate\Console\Scheduling\Schedule::class);
+        $schedule->command('queue:work --stop-when-empty')->everyMinute()->withoutOverlapping(3600);
+
     }
 }

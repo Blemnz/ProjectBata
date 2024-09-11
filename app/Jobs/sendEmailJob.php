@@ -30,6 +30,6 @@ class sendEmailJob implements ShouldQueue
     public function handle(): void
     {
         $data = $this->data;
-        Mail::to('bandungbata@gmail.com')->send(new OrderNotification());
+        Mail::to('nizamuddinFaisal25@gmail.com')->send(new OrderNotification());
     }
 }
