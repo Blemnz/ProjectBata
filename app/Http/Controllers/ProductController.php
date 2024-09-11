@@ -44,7 +44,7 @@ class ProductController extends Controller
         ]); 
 
         if ($request->file('image')) {
-            $data['image'] = $request->file('image')->Store('images');
+            $data['image'] = $request->file('image')->store('images', 'public');
         }
         try{
             DB::beginTransaction();
@@ -96,7 +96,7 @@ class ProductController extends Controller
             $data_image = product::where('id',$id)->first();
             Storage::delete($data_image->image);
 
-            $data['image'] = $request->file('image')->store('images');
+            $data['image'] = $request->file('image')->store('images', 'public');
 
         } else {
             $data_image = product::where('id',$id)->first();

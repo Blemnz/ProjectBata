@@ -55,7 +55,7 @@
         </div>
     </section>
     <section class="product" id="product">
-        <h1>PRODUK</h1>
+        <h1>PRODUK (Fitur Checkout)</h1>
         <div class="card-container">
             @foreach ($products as $product)
                 <div class="card">
