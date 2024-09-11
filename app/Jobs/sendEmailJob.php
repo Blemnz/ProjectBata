@@ -2,14 +2,17 @@
 
 namespace App\Jobs;
 
-use App\Mail\OrderNotif;
 use App\Mail\OrderNotification;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Foundation\Queue\Queueable;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
 
-class SendMail
+class sendEmailJob implements ShouldQueue
 {
-    use Dispatchable;
+    use Queueable;
 
     public $data;
 
@@ -27,6 +30,6 @@ class SendMail
     public function handle(): void
     {
         $data = $this->data;
-        Mail::to('bandungbata@gmail.com')->send(new OrderNotification($data));
+        Mail::to('bandungbata@gmail.com')->send(new OrderNotification());
     }
 }

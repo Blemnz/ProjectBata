@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\sendEmailJob;
 use App\Jobs\SendMail;
 use App\Mail\OrderNotif;
 use App\Models\ItemOrder;
@@ -84,7 +85,7 @@ class OrderController extends Controller
                 'nomor' => $request->nomor,
                 'email' => $request->email,
             ];
-            SendMail::dispatch(new SendMail($data));
+            sendEmailJob::dispatch(new sendEmailJob($data));
             return redirect()->to('/terkirim');
         }catch(\Exception $e){
             DB::rollBack();
@@ -159,15 +160,6 @@ class OrderController extends Controller
         return redirect()->to('dashboard/orders/cencel')->with('success','Order berhasil dihapus');
     }
 
-    public function sender() {
-        $data = [
-            'nama' => 'faisal',
-            'alamat' => 'dimanaaja',
-            'nomor' => '123213',
-            'email' => 'email@mail.com',
-        ];
-        SendMail::dispatch(new SendMail($data));
-    }
 
     public function cencel(Request $request, string $id) {  
         try{
