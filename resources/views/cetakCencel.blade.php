@@ -14,7 +14,6 @@
         <hr>
         <h5>Order id : {{ $order->id }}</h5>
         <h5>Nama : {{ $order->nama }}</h5>
-        <h5>Email : {{ $order->email }}</h5>
         <h5>Alamat : {{ $order->alamat }}</h5>
         <h5>Nomor Telpon : {{ $order->nomor }}</h5>
         <h5>Tanggal Order : {{ $order->created_at }}</h5>

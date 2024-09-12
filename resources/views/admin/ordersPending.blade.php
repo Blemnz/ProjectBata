@@ -25,7 +25,6 @@
             <th scope="col">Nama</th>
             <th scope="col">Alamat</th>
             <th scope="col">Nomor Telpon</th>
-            <th scope="col">Email</th>
             <th scope="col">Aksi</th>
           </tr>
         </thead>
@@ -38,7 +37,6 @@
                 <td>{{ $order->nama }}</td>
                 <td>{{ $order->alamat }}</td>
                 <td>{{ $order->nomor }}</td>
-                <td>{{ $order->email }}</td>
                 <td>
                     <a href="{{ url('/dashboard/orders/'.$order->id.'/validate') }}" class="btn btn-primary"> <i data-feather="check"></i></a>
                     <a href="{{ url('/order/cetakPending/'.$order->id) }}" class="btn btn-primary"> <i data-feather="printer"></i></a>

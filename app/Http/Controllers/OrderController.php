@@ -45,7 +45,6 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'email' => 'required|email:dns',
             'nama' => 'required',
             'alamat' => 'required',
             'nomor' => 'required|numeric',
@@ -59,7 +58,6 @@ class OrderController extends Controller
             $order = new Order;
             $order->nama = $request->nama;
             $order->alamat = $request->alamat;
-            $order->email = $request->email;
             $order->nomor = $request->nomor;
             foreach ($orders as $orderItem) {
                 // menghitung total harga

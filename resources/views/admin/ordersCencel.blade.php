@@ -25,7 +25,6 @@
             <th scope="col">Nama</th>
             <th scope="col">Alamat</th>
             <th scope="col">Nomor Telpon</th>
-            <th scope="col">Email</th>
             <th scope="col">Aksi</th>
           </tr>
         </thead>
@@ -37,7 +36,6 @@
                 <td>{{ $order->nama }}</td>
                 <td>{{ $order->alamat }}</td>
                 <td>{{ $order->nomor }}</td>
-                <td>{{ $order->email }}</td>
                 <td>
                     <a href="{{ url('/order/cetakCancel/'.$order->id) }}" class="btn btn-primary"> <i data-feather="printer"></i></a>
                     <form class="d-inline" onsubmit="return confirm('yakin menghapus order?')"  action="{{ url('dashboard/orders/delete/'.$order->id) }}" method="POST">

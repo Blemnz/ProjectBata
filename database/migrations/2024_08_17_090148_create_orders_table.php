@@ -15,7 +15,6 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('nama');
             $table->string('alamat');
-            $table->string('email');
             $table->bigInteger('nomor');
             $table->bigInteger('total');
             $table->enum('status', ['pending', 'cencel', 'selesai'])->default('pending');
